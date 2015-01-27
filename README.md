@@ -10,14 +10,9 @@ The other thing we do here is to wrap in the data we load from our database into
 
 The end result?
 
-1) Our app loads incredibly quickly because we are just submitting an html page at the start
-
-2) Our app serves fast expressive html which leads to SEO
-
-2) Our app loads all of the goody responsive client-side routing associated with SPAs, meaning a much more enjoyable experience navigating the app than you get with a server side app
-
-3) We can write our React Router and React components just like we would for any normal client side app without having to worry about our rendering on the server
-
-4) The only part of the app that needs to know anything about the server side rendering is our store because it needs to grab pre-rendered app data
-
-5) We can directly modify our store on the server-side whenever we get our data
+1. Our app loads incredibly quickly because we are just submitting an html page at the start
+2. Our app serves fast expressive html which leads to SEO
+3. Our app loads all of the goody responsive client-side routing associated with SPAs, meaning a much more enjoyable experience navigating the app than you get with a server side app
+4. We can write our React Router and React components just like we would for any normal client side app without having to worry about our rendering on the server
+5. The only part of the app that needs to know anything about the server side rendering is our store because it needs to grab pre-rendered app data
+6. We can directly modify our store on the server-side whenever we get our data

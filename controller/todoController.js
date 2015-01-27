@@ -1,11 +1,10 @@
-var Promise = require('bluebird');
-var Todo = Promise.promisifyAll(require('../db/todo.model'));
+var Todo = require('../db/todo.model');
 
 module.exports = {
   getAll: function () {
-    return Todo.findAsync({});
+    return Todo.find({}).limit(300).exec();
   },
   add: function (todo) {
-    return Todo.createAsync(todo);
+    return Todo.create(todo);
   }
 };

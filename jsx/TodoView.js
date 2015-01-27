@@ -1,6 +1,4 @@
-var React = require('react'),
-    DOM = React.DOM,
-    div = DOM.div, button = DOM.button, ul = DOM.ul, li = DOM.li;
+var React = require('react');
 
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
@@ -53,12 +51,14 @@ var MyApp = React.createClass({
     return (
       <div>
         <h1>{this.state.disabled ? 'This is the server rendering' : 'Now the app has fully loaded'}</h1>
+        <Link to={'custom'}>Custom Link</Link>
+        <RouteHandler />
+        <br />
+        <br />
         <button onClick={this.handleClick} disabled={this.state.disabled}>Add Item</button>
         <ul>
           {Todos}
         </ul>
-        <Link to={'custom'}>Custom Link</Link>
-        <RouteHandler />
       </div>
     );
   },
