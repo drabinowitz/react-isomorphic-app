@@ -1,12 +1,16 @@
 var React = require('react');
 
 var Router = require('react-router');
+var moment = require('moment');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 var $ = require('jquery');
 
 var todoActions = require('../actions/todoActions');
 var todoStore = require('../stores/todoStore');
+
+var nouns = ['cow', 'moon', 'dog', 'person', 'isomorphic react app', 'flower', 'bunny', 'snowshoe', 'dr.octopus', 'the unbearable lightness of being'];
+var verbs = ['fights', 'jumps over', 'runs past', 'dances with', 'falls in love with', 'catches', 'believes in'];
 
 var MyApp = React.createClass({
 
@@ -36,16 +40,16 @@ var MyApp = React.createClass({
 
   handleClick: function () {
     todoActions.add({
-      text: this.state.todos.length
+      text: nouns[Math.floor(Math.random() * (nouns.length))] + ' ' + verbs[Math.floor(Math.random() * (verbs.length))] + ' ' + nouns[Math.floor(Math.random() * (nouns.length))]
     });
   },
 
   render: function() {
     var Todos = [];
-    for (var i = 0; i < this.state.todos.length; i++) {
+    for (var i = this.state.todos.length - 1; i >= 0; i--) {
       var todo = this.state.todos[i];
       Todos.push(
-        <li key={todo._id}>{todo.text}</li>
+        <li key={todo._id}>Todo: {todo.text} Created At: {moment(todo.createdAt).fromNow()}</li>
       );
     }
     return (
