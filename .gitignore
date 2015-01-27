@@ -1,5 +1,6 @@
 node_modules/
 src/
 client/bundle.js
+client/css/
 npm-debug.log
 .tern-port
