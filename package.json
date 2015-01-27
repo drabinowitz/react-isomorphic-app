@@ -45,12 +45,16 @@
     "object-assign": "^2.0.0",
     "react": "^0.12.2",
     "react-router": "^0.11.6",
+    "react-tools": "^0.12.2",
     "reactify": "^1.0.0",
     "watchify": "^2.2.1"
   },
   "scripts": {
     "start": "nodemon index.js",
-    "build": "watchify -d jsx/Router.js -o client/bundle.js -v",
-    "jsx": "jsx --watch --no-cache-dir jsx/ src/"
+    "watch": "watchify -d jsx/Router.js -o client/bundle.js -v",
+    "build": "browserify jsx/Router.js -o client/bundle.js",
+    "jsx-watch": "jsx --watch --no-cache-dir jsx/ src/",
+    "jsx": "jsx --no-cache-dir jsx/ src/",
+    "postinstall": "npm run jsx && npm run build"
   }
 }
