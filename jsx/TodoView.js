@@ -12,7 +12,7 @@ var todoStore = require('../stores/todoStore');
 var nouns = ['cow', 'moon', 'dog', 'person', 'isomorphic react app', 'flower', 'bunny', 'snowshoe', 'dr.octopus', 'the unbearable lightness of being'];
 var verbs = ['fights', 'jumps over', 'runs past', 'dances with', 'falls in love with', 'catches', 'believes in'];
 
-var MyApp = React.createClass({
+var TodoView = React.createClass({
 
   getInitialState: function () {
     return {todos: todoStore.getAll(), disabled: true};
@@ -49,7 +49,10 @@ var MyApp = React.createClass({
     for (var i = this.state.todos.length - 1; i >= 0; i--) {
       var todo = this.state.todos[i];
       Todos.push(
-        <li key={todo._id}>Todo: {todo.text} Created At: {moment(todo.createdAt).fromNow()}</li>
+        <li className='todo-item' key={todo._id}>
+          <span className='todo-text'>Todo: {todo.text}</span>
+          <span className='todo-date'>Created At: {moment(todo.createdAt).fromNow()}</span>
+        </li>
       );
     }
     return (
@@ -69,4 +72,4 @@ var MyApp = React.createClass({
 });
 
 
-module.exports = MyApp;
+module.exports = TodoView;

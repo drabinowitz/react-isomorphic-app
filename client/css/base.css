@@ -1,0 +1,19 @@
+html, body, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef; }
+
+.todo-item {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px; }
+
+.todo-text {
+  display: block; }
+
+.todo-date {
+  display: block; }

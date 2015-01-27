@@ -1,0 +1,29 @@
+@import 'reset';
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin text-block() {
+  display: block;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+
+.todo-item {
+  @include border-radius(2px);
+}
+
+.todo-text {
+  @include text-block();
+}
+
+.todo-date {
+  @include text-block();
+}

@@ -9,6 +9,7 @@ module.exports = function (contentString, dataString, key) {
     "<html lang='en'>" +
       "<head>" +
         "<title>Isomorphic App</title>" +
+        "<link rel='stylesheet' href='./css/base.css'>" +
       "</head>" +
       "<body>" +
         "<h1>Hello Todo</h1>" +
