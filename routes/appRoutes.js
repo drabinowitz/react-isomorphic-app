@@ -13,14 +13,12 @@ getCallback = function (req, res) {
 
     Router.run(routes, req.url, function (Handler) {
       pageHtml = React.renderToString(React.createElement(Handler, null));
+      pageHtml = generateIndexHtml(pageHtml, JSON.stringify(data), 'todos');
+      res.send(pageHtml);
     });
-
-    pageHtml = generateIndexHtml(pageHtml, JSON.stringify(data), 'todos');
-    res.send(pageHtml);
   });
 };
 
 module.exports = function (app) {
-  app.route('/').get(getCallback);
-  app.route('/custom').get(getCallback);
+  app.route('/*').get(getCallback);
 };

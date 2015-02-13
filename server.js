@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/client'));
 
-var appRouter = express.Router();
-require('./routes/appRoutes')(appRouter);
-app.use(appRouter);
-
 var todoRouter = express.Router();
 require('./routes/todoRoutes')(todoRouter);
 app.use('/todos', todoRouter);
+
+var appRouter = express.Router();
+require('./routes/appRoutes')(appRouter);
+app.use(appRouter);
 
 module.exports = app;
