@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mhart/react-server-example"
+    "url": "https://github.com/drabinowitz/react-isomorphic-app"
   },
   "browserify": {
     "transform": [
@@ -30,13 +30,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.0",
+    "bluebird": "^2.9.9",
     "body-parser": "^1.10.2",
     "browser-sync": "^1.9.1",
-    "express": "^4.11.1",
     "browserify": "^7.0.3",
     "envify": "^3.2.0",
     "eventemitter": "^0.3.3",
+    "express": "^4.11.1",
+    "fetchr": "^0.4.6",
     "flux": "^2.0.1",
     "gulp": "^3.8.10",
     "gulp-nodemon": "^1.0.5",

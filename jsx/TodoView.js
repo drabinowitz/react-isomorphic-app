@@ -13,6 +13,11 @@ var nouns = ['cow', 'moon', 'dog', 'person', 'isomorphic react app', 'flower', '
 var verbs = ['fights', 'jumps over', 'runs past', 'dances with', 'falls in love with', 'catches', 'believes in'];
 
 var TodoView = React.createClass({
+  statics: {
+    initialize: function (params) {
+      todoActions.get();
+    }
+  },
 
   getInitialState: function () {
     return {todos: todoStore.getAll(), disabled: true};
@@ -27,7 +32,7 @@ var TodoView = React.createClass({
   componentDidMount: function () {
     todoStore.addChangeListener(this.storeCallback);
     if (window && !window.isInitialLoad) {
-      todoActions.get();
+      this.initialize();
     } else {
       window.isInitialLoad = false;
     }

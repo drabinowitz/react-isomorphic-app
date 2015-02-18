@@ -14,6 +14,12 @@ var routes = (
 
 
 if (typeof window !== "undefined") {
+  var Fetcher = require('fetchr');
+  var todoActions = require('../actions/todoActions');
+  var fetcher = new Fetcher({
+    xhrPath: '/todos'
+  });
+  todoActions.fetcher = fetcher;
   Router.run(routes, Router.HistoryLocation, function (Handler) {
     React.render(<Handler />, document.getElementById('content'));
   });

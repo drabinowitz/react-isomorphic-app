@@ -10,9 +10,10 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/client'));
 
-var todoRouter = express.Router();
-require('./routes/todoRoutes')(todoRouter);
-app.use('/todos', todoRouter);
+var Fetcher = require('fetchr');
+Fetcher.registerFetcher(require('./services/todos'));
+
+app.use('/todos', Fetcher.middleware());
 
 var appRouter = express.Router();
 require('./routes/appRoutes')(appRouter);
