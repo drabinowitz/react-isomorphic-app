@@ -8,9 +8,7 @@ module.exports = {
     var readPromise = todoController.getAll().then(function (result) {
       callback(null, result);
     });
-    if (typeof window === 'undefined') {
-      initializer.register(readPromise);
-    }
+    initializer.register(readPromise);
   },
 
   create: function (req, resource, params, body, config, callback) {

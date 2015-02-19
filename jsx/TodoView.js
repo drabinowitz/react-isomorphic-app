@@ -4,7 +4,6 @@ var Router = require('react-router');
 var moment = require('moment');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
-var $ = require('jquery');
 
 var todoActions = require('../actions/todoActions');
 var todoStore = require('../stores/todoStore');
@@ -12,12 +11,12 @@ var todoStore = require('../stores/todoStore');
 var nouns = ['cow', 'moon', 'dog', 'person', 'isomorphic react app', 'flower', 'bunny', 'snowshoe', 'dr.octopus', 'the unbearable lightness of being'];
 var verbs = ['fights', 'jumps over', 'runs past', 'dances with', 'falls in love with', 'catches', 'believes in'];
 
+var initializerMixin = require('../utils/initializer').generateMixin(function (params) {
+  todoActions.get();
+});
+
 var TodoView = React.createClass({
-  statics: {
-    initialize: function (params) {
-      todoActions.get();
-    }
-  },
+  mixins: [initializerMixin],
 
   getInitialState: function () {
     return {todos: todoStore.getAll(), disabled: true};
@@ -64,6 +63,8 @@ var TodoView = React.createClass({
       <div>
         <h1>{this.state.disabled ? 'This is the server rendering' : 'Now the app has fully loaded'}</h1>
         <Link to={'custom'}>Custom Link</Link>
+        <br />
+        <Link to={'other'}>Other Link</Link>
         <RouteHandler />
         <br />
         <br />
